@@ -8,7 +8,7 @@ import * as Todo from "../model/Todo";
 
 let globalId = 0;
 const renderItems = flow(
-  RA.sortBy([Todo.orgByDone, Todo.orgById]),
+  RA.sortBy([Todo.ordByDone, Todo.ordById]),
   RA.map((it) => <TodoItemC key={it.id} item={it} />)
 );
 

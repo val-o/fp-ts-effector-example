@@ -29,11 +29,11 @@ export const eq: Eq.Eq<TodoItem> = Eq.contramap((t: TodoItem) => t.id)(
   Number.Eq
 );
 
-export const orgByDone: Ord.Ord<TodoItem> = Ord.contramap(
+export const ordByDone: Ord.Ord<TodoItem> = Ord.contramap(
   (a: TodoItem) => a.done
 )(Bool.Ord);
 
-export const orgById: Ord.Ord<TodoItem> = Ord.contramap((a: TodoItem) => a.id)(
+export const ordById: Ord.Ord<TodoItem> = Ord.contramap((a: TodoItem) => a.id)(
   Number.Ord
 );
 

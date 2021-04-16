@@ -32,3 +32,5 @@ export const updateItemName = (name: Todo.Name) =>
   flow(itemByIdLens, Optional.modify(Todo.setName(name)));
 
 //#endregion
+
+export const treeShakingTest = () => ['treeShakingTest'];
