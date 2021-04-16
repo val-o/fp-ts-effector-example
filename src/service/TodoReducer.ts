@@ -5,7 +5,6 @@ import * as E from "fp-ts/Either";
 import * as O from "fp-ts/Option";
 import * as RA from "fp-ts/ReadonlyArray";
 import * as Eq from "fp-ts/Eq";
-import * as Prism from "monocle-ts/Prism";
 import * as TodoState from "../model/TodoState";
 import * as Todo from "../model/Todo";
 
@@ -23,29 +22,10 @@ export const addTodo: Reducer<Todo.TodoItem> = (state, todoItem) => {
 export const editTodoName: Reducer<{ id: number; newName: Todo.Name }> = (
   state,
   { id, newName }
-) => {
-  const items = pipe(
-    state.items,
-    RA.findIndex((t) => t.id === id),
-    O.chain((idx) =>
-      pipe(state.items, RA.modifyAt(idx, Todo.setName(newName)))
-    ),
-    O.getOrElse(() => state.items)
-  );
+) => pipe(state, TodoState.updateItemName(newName)(id));
 
-  return pipe(state, TodoState.setItmes(items));
-};
-
-export const toggleTodo: Reducer<Todo.TodoItem> = (state, todoItem) => {
-  const items = pipe(
-    state.items,
-    RA.findIndex((t) => Todo.eq.equals(t, todoItem)),
-    O.chain((idx) => pipe(state.items, RA.modifyAt(idx, Todo.toggle))),
-    O.getOrElse(() => state.items)
-  );
-
-  return pipe(state, TodoState.setItmes(items));
-};
+export const toggleTodo: Reducer<Todo.TodoItem> = (state, { id }) =>
+  pipe(state, TodoState.toggleTodo(id));
 
 export const deleteTodo: Reducer<number> = (state, todoId) => {
   const items = pipe(

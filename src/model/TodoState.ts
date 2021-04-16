@@ -1,8 +1,9 @@
 import * as Todo from "./Todo";
 import * as Prism from "monocle-ts/Prism";
 import * as Lens from "monocle-ts/Lens";
-import { pipe } from "fp-ts/lib/function";
-import { Optional } from "monocle-ts";
+import * as O from "fp-ts/Option";
+import { flow, pipe } from "fp-ts/lib/function";
+import * as Optional from "monocle-ts/Optional";
 
 export interface State {
   readonly items: readonly Todo.TodoItem[];
@@ -11,15 +12,15 @@ export interface State {
 const itemsLens = pipe(Lens.id<State>(), Lens.prop("items"));
 export const setItmes = itemsLens.set;
 
-export const findById = (id: number) => pipe(itemsLens, Lens.findFirst(t => t.id === id)).getOption
+const itemByIdLens = (id: number) =>
+  pipe(
+    itemsLens,
+    Lens.findFirst((todo) => todo.id === id)
+  );
 
-// const itemByIdLens = (id: number) =>
-//   pipe(
-//     itemsLens,
-//     Lens.findFirst((todo) => todo.id === id),
-//   );
+export const findById = flow(itemByIdLens, (s) => s.getOption);
 
-// const updateItemName = (name: string, id: number) => {
-//   const item = itemByIdLens(id).getOption;
-//   itemByIdLens(id).set(Todo.setName(name))
-// }
+export const toggleTodo = flow(itemByIdLens, Optional.modify(Todo.toggle));
+
+export const updateItemName = (name: Todo.Name) =>
+  flow(itemByIdLens, Optional.modify(Todo.setName(name)));
