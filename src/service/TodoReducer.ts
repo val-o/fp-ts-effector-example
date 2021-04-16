@@ -12,12 +12,8 @@ type Reducer<TPayload> = {
   (state: TodoState.State, todoItem: TPayload): TodoState.State;
 };
 
-export const addTodo: Reducer<Todo.TodoItem> = (state, todoItem) => {
-  return {
-    ...state,
-    items: pipe(state.items, RA.append(todoItem)),
-  };
-};
+export const addTodo: Reducer<Todo.TodoItem> = (state, todoItem) =>
+  pipe(state, TodoState.setItmes(pipe(state.items, RA.append(todoItem))));
 
 export const editTodoName: Reducer<{ id: number; newName: Todo.Name }> = (
   state,
