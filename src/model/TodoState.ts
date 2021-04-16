@@ -5,9 +5,15 @@ import * as O from "fp-ts/Option";
 import { flow, pipe } from "fp-ts/lib/function";
 import * as Optional from "monocle-ts/Optional";
 
+//#region definitions
+
 export interface State {
   readonly items: readonly Todo.TodoItem[];
 }
+
+//#endregion
+
+//#region optics
 
 const itemsLens = pipe(Lens.id<State>(), Lens.prop("items"));
 export const setItmes = itemsLens.set;
@@ -24,3 +30,5 @@ export const toggleTodo = flow(itemByIdLens, Optional.modify(Todo.toggle));
 
 export const updateItemName = (name: Todo.Name) =>
   flow(itemByIdLens, Optional.modify(Todo.setName(name)));
+
+//#endregion
