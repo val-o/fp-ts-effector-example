@@ -4618,6 +4618,16 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+effector-react@^21.3.2:
+  version "21.3.2"
+  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-21.3.2.tgz#1ef52bf72fb304cb76e8bd1d7b75dd5f588ff661"
+  integrity sha512-+SGFgsfVnQ4cSwcjugjK+DnKVk7MDaNTOOzw2n1+8/c477w6YwFi4KusPnMfeWtaAdfidTmRn1EoYSvUhAX+EQ==
+
+effector@^21.8.11:
+  version "21.8.11"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-21.8.11.tgz#fbe35fb754a9918fb33781a9a408b635218ff41a"
+  integrity sha512-yEdPMYsocx5rZb/zvnPrkM77tpbnTqWZ/W/JYWxojhUD+ZW04Mpa8ezL0X1LwceYnTHAj2RscLCKK9IFD85lcA==
+
 ejs@^2.6.1:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
@@ -5502,6 +5512,11 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+
+fp-ts@^2.10.2:
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.10.2.tgz#1df0ccabf10a611a9c64eccfd5d0ae0ea0fc13ea"
+  integrity sha512-YB/FSwESW8C3kVCbbyFiZSXXoQEJ/SaeHHorL6KCKHoPIPV6v/hyfMiXBPMjW7O7D9jfxlRs6VeCRonfqi1Tcg==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -7815,6 +7830,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+monocle-ts@^2.3.9:
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-2.3.9.tgz#037d8a14f72dfd5ce6928c8730de1f0e504da94d"
+  integrity sha512-X5ppMOPAQV/BeENhPpEI0hJelXMoNVtHlTVk89ugZL7ZvK6JtBDFW/762aq1MOzCCaBAFlxGz1Wmxa0DW7tshQ==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
